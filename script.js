@@ -17,3 +17,6 @@ function handleSearchFormSubmit(event) {
 }
 
 searchFormEl.addEventListener('submit', handleSearchFormSubmit);
+
+// Weather API:
+// https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
