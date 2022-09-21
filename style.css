@@ -1,5 +1,6 @@
 body {
     font-family: 'Fira Sans', sans-serif;
+    background-color: #007bff;
   }
   
   h1,
@@ -12,3 +13,11 @@ body {
     font-weight: 700;
   }
   
+  .text-primary {
+    text-align: center;
+    color: #007bff;
+  }
+
+  .btn {
+    background-color: #007bff;
+  }
