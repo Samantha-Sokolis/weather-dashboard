@@ -1,22 +1,13 @@
-var searchFormEl = document.querySelector('#search-form');
-
-function handleSearchFormSubmit(event) {
-  event.preventDefault();
-
-  var searchInputVal = document.querySelector('#search-input').value;
-  var formatInputVal = document.querySelector('#format-input').value;
-
-  if (!searchInputVal) {
-    console.error('You need a search input value!');
-    return;
-  }
-
-  var queryString = './search-results.html?q=' + searchInputVal + '&format=' + formatInputVal;
-
-  location.assign(queryString);
-}
-
-searchFormEl.addEventListener('submit', handleSearchFormSubmit);
 
 // Weather API:
 // https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
+
+
+// MY KEY below: d6e0ea5fdd70eb0c05228e0f41cc3c81
+var WeatherAPIKey = "d6e0ea5fdd70eb0c05228e0f41cc3c81";
+
+var city;
+
+api.openweathermap.org/data/2.5/weather?q={city}&appid={WeatherAPIKey}
+
+// var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;

@@ -3,6 +3,10 @@ body {
     background-color: #c3dcf6;
   }
   
+div {
+    padding: 20px;
+}
+
   h1,
   h2,
   h3,
