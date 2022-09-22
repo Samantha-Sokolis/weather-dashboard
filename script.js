@@ -7,7 +7,8 @@
 var WeatherAPIKey = "d6e0ea5fdd70eb0c05228e0f41cc3c81";
 var url = `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WeatherAPIKey}`;
 var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + WeatherAPIKey;
-var cityEl = document.getElementById("search-input");
+//var cityEl = document.getElementById("search-input");
+var searchFormEl = document.getElementById('#search-form');
 var nameEl = document.getElementById(".city-name");
 var todayweatherEl = document.getElementById(".todays-date");
 var todayweatherEl = document.getElementById(".todays-weather");
@@ -42,7 +43,9 @@ function getWeather(cityName) {
         });
     }
 
-    // event listener should go here to bring elements to Main Card?
+    // event listener should go here to bring elements to Main Card? OR should the above be a FETCH request?
 
-    
+searchFormEl.addEventListener('submit', handleSearchFormSubmit);
+
+getWeather();
     // below the MAIN card, each of the CARDs includes the city's .date .temperature .wind .humidty
