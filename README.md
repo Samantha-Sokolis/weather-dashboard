@@ -26,5 +26,4 @@ THEN I am again presented with current and future conditions for that city
 ```
 
 ## Image
-
-## Notes
+![Weather Dashboard screenshot](https://user-images.githubusercontent.com/109199225/191733106-a58b258d-a80c-4940-accd-474897754dbd.png)
