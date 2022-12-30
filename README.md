@@ -26,5 +26,5 @@ THEN I am again presented with current and future conditions for that city
 ```
 
 ## Image
+![Weather Dashboard screenshot](assets/images/weather-dashboard-sam.png)
 
-## Notes
