@@ -28,3 +28,5 @@ THEN I am again presented with current and future conditions for that city
 ## Image
 ![Weather Dashboard screenshot](assets/images/weather-dashboard-sam.png)
 
+## Link to deployed site:
+https://samantha-sokolis.github.io/weather-dashboard/
