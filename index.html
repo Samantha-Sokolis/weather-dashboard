@@ -1,104 +1,64 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Weather Dashboard</title>
-<!--Boostrap stylesheet link added below-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&family=Merriweather:wght@700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="./style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Weather Dashboard</title>
 </head>
 
 <body>
-<!--Header section-->
-    <div class="flex-row align-center justify-center min-100-vh bg-light">
-        <div class="col-12 col-md-9 flex-column align-center p-3">
-            <h1 class="text-primary"><img src="assets/sun-icon-31.png" alt="illustration of orange sun with rays" style="width:80px;height:80px;">  Weather Dashboard</h1>
-        </div>
+    <!-- Jumbotron to display the City name upon search -->
+    <div id="header" class="jumbotron jumbotron-fluid text-container">
+      <h1 class="text-primary"><img src="assets/images/sun-icon-31.png" alt="illustration of orange sun with rays" style="width:100px;height:100px;">  Weather Dashboard</h1>
+        <div id="artist-credit"></div>
     </div>
-<!--Search form below-->
-<!-- <div class="flex-row align-center justify-center min-100-vh bg-light"></div>-->   
-    <div class="row">
-        <div class="col-sm-4">
-            <div id="search-form" class="form w-50">
-            <input id="search-input" class="form-input w-100" type="text" placeholder="Search for a city...">
-            <button id="search-button" class="btn btn-info btn-block">Search</button>
+
+    <!-- Main container for webpage content -->
+    <div id="content" class="container">
+        <div class="row">
+
+            <!-- Left side content with city search box and appended cities -->
+            <div id="content-left" class="col-md-3">
+                <form>
+                    <label for="search-city">Search for a City:</label>
+                    <div class="form-row">
+                        <input id="search-city" class="form-control" name="city" value="Austin"></input>
+                        <!-- fontawesome magnifying glass -->
+                        <button id="search-button" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+                <div id="search-error"></div>
+                <!-- list of prior searched cities -->
+                <ul id="city-results" class="list-group mt-4"></ul>
+                <!-- clear storage button -->
+                <a id="clear-storage" href="#"></a>    
             </div>
-        </div>
-<!-- results list below for left hand side list-->  
-        <div class="col-sm-4">
-            <span id="result-text"></span></h2>
-            <div id="result-content"></div>
+
+            <!-- Right side content showing current weather and five day forecast displays on search -->
+            <div id="content-right" class="col-md-9 pt-4">
+                <!-- Current weather displayed on top -->
+                <div id="current-weather" class="border rounded"></div>
+                <!-- Five day forecast below the current weather -->
+                <div id="five-day-forecast" class="mt-5"></div>
+            </div>
         </div>
     </div>
 
-        <div class="col-sm-4">
-            <div class="card" style="width: 30rem;">
-                <div id="todays-weather" class="card-body">
-                  <h5 id="city-name"></h5>
-                  <p class="mb-2" id = "todays-date"></p>
-                  <p class="mb-2" id = "temperature"></p>
-                  <p class="mb-2" id = "wind"></p>
-                  <p class="mb-2" id = "humidity"></p>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <h1 class="text-primary">5-Day Forecast</h1>
-        </div>
-        <div class="card-deck">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="todays-date"></h5>
-                <p id="mb-2 temperature"></p>
-                <p id="mb-2 wind"></p>
-                <p id="mb-2 humidity"></p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <h5 class="todays-date"></h5>
-                <p id="mb-2 temperature"></p>
-                <p id="mb-2 wind"></p>
-                <p id="mb-2 humidity"></p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <h5 class="todays-date"></h5>
-                <p id="mb-2 temperature"></p>
-                <p id="mb-2 wind"></p>
-                <p id="mb-2 humidity"></p>
-              </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                  <h5 class="todays-date"></h5>
-                  <p id="mb-2 temperature"></p>
-                  <p id="mb-2 wind"></p>
-                  <p id="mb-2 humidity"></p>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="todays-date"></h5>
-                  <p id="mb-2 temperature"></p>
-                  <p id="mb-2 wind"></p>
-                  <p id="mb-2 humidity"></p>
-                </div>
-              </div>
-          </div>
-    </div>
-
-
-<!--Boostrap bundle link added below-->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-<script src="./script.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- Custom Script -->
+    <script src="./assets/js/script.js"></script>
+    
 </body>
-
 </html>

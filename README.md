@@ -28,3 +28,5 @@ THEN I am again presented with current and future conditions for that city
 ## Image
 
 ## Notes
+see example: 
+https://github.com/JodyBrzo/weather-dashboard 
